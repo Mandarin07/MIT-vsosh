@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+venv/
+.venv/
+env/
+.env
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs and databases
+logs/
+*.db
+*.log
+
+# User data
+downloads/
+allowed_users.json
+
+# Large datasets (download separately)
+mitre/
+
+# Local config (use config.example.yaml as template)
+config.yaml
+config/
+
+# Misc
+*.rtf
+*.bak
+.DS_Store
