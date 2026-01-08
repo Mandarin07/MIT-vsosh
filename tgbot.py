@@ -275,6 +275,8 @@ def cmd_gid(msg):
 @bot.message_handler(commands=["admin"])
 def cmd_admin(msg):
     uid = msg.from_user.id
+    if is_group(msg):
+        return  # Команда отключена в группах из соображений безопасности
     if not is_admin(uid):
         bot.reply_to(msg, "❌ Только для супер-админов")
         return
@@ -432,6 +434,9 @@ def on_cb(call):
                               parse_mode="Markdown")
     
     elif d == "admin_panel":
+        if call.message.chat.type != 'private':
+            bot.answer_callback_query(call.id, "Только в личных сообщениях")
+            return
         if not is_admin(uid):
             bot.answer_callback_query(call.id, "Нет доступа")
             return
@@ -440,6 +445,9 @@ def on_cb(call):
                               reply_markup=admin_kb(), parse_mode="Markdown")
     
     elif d == "list":
+        if call.message.chat.type != 'private':
+            bot.answer_callback_query(call.id, "Только в личных сообщениях")
+            return
         if not is_admin(uid):
             return
         t = f"**👑 Супер-админы:** {PRIVATE_ADMINS[:5]}\n"
@@ -449,6 +457,9 @@ def on_cb(call):
                               reply_markup=admin_kb(), parse_mode="Markdown")
     
     elif d in ["add_admin", "add_padmin", "block", "add_grp", "del_grp"]:
+        if call.message.chat.type != 'private':
+            bot.answer_callback_query(call.id, "Только в личных сообщениях")
+            return
         if not is_admin(uid):
             bot.answer_callback_query(call.id, "Нет доступа")
             return
