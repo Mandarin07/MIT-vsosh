@@ -1,9 +1,13 @@
-pyTelegramBotAPI>=4.14.0   
-python-dotenv>=1.0.0        
-PyYAML>=6.0       
-hunter>=3.9.0       
-psutil>=5.9.0            
-yara-python>=4.5.0       
-pyelftools>=0.32          
-requests>=2.31.0         
+pyTelegramBotAPI>=4.14.0
+python-dotenv>=1.0.0
+PyYAML>=6.0
+hunter>=3.9.0
+psutil>=5.9.0
+yara-python>=4.5.0
+pyelftools>=0.32
+requests>=2.31.0
 
+# VM Manager dependencies (for QEMU-based sandbox)
+# Note: QEMU packages must be installed separately:
+#   Raspberry Pi OS / Debian: sudo apt install qemu-system-arm qemu-system-x86
+#   macOS: brew install qemu

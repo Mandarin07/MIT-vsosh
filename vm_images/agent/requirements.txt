@@ -1,0 +1,6 @@
+# Sandbox Agent Requirements
+# These should be installed inside the VM
+
+psutil>=5.9.0
+watchdog>=3.0.0
+pyinotify>=0.9.6

@@ -1,0 +1,47 @@
+# VM Sandbox Configuration
+# Configuration for QEMU/KVM virtual machine based malware analysis
+
+paths:
+  images_dir: "vm_images"
+  sockets_dir: "/tmp/vm_sandbox"
+  logs_dir: "logs/vm"
+
+# Virtual Machine configurations
+vm:
+  arm64:
+    image: "vm_images/ubuntu-arm64.qcow2"
+    ram: "4G"
+    cpus: 4
+    snapshot: "clean"
+  
+  x64:
+    image: "vm_images/ubuntu-x64.qcow2"
+    ram: "4G"
+    cpus: 2  # TCG emulation is slower
+    snapshot: "clean"
+
+# Anti-VM Detection Settings
+anti_vm:
+  # SMBIOS profile (dell_optiplex, hp_prodesk, lenovo_thinkcentre)
+  smbios_profile: "dell_optiplex"
+  
+  # Network MAC address prefix (Dell OUI)
+  mac_prefix: "D4:BE:D9"
+  
+  # Disk serial number prefix (Western Digital style)
+  disk_serial: "WD-WCAV"
+  
+  # Hide hypervisor presence
+  hide_hypervisor: true
+  
+  # Fake hardware sensors (thermal, fans, battery)
+  fake_sensors: true
+  
+  # Generate user artifacts (files, browser history)
+  user_artifacts: true
+
+# Timeout settings (seconds)
+timeouts:
+  vm_boot: 30
+  analysis: 60
+  snapshot_restore: 5
