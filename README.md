@@ -15,8 +15,8 @@ Project for VSOSH Olympiad. Checking for malware activity in files via Raspberry
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/malware-analys-vsosh.git
-cd malware-analys-vsosh
+git clone https://github.com/Mandarin07/MIT-vsosh.git
+cd MIT-vsosh
 
 sudo apt install firejail   
 sudo apt install tcpdump    
@@ -45,13 +45,13 @@ nano .env
 nano allowed_users.json
 ```
 
-4. (Optional) Download MITRE ATT&CK data:
+4. MITRE ATT&CK:
 ```bash
 mkdir -p mitre
 curl -o mitre/enterprise-attack.json https://raw.githubusercontent.com/mitre/cti/master/enterprise-attack/enterprise-attack.json
 ```
 
-5. (Optional) Build tracer library:
+5. Build tracer:
 ```bash
 cd tracer_lib
 make
@@ -67,7 +67,6 @@ cd ..
 ### allowed_users.json
 - `users` - List of Telegram user IDs allowed to use the bot
 - `admin` - Admin user IDs
-- `privat_admin` - Private admin IDs
 - `allowed_groups` - Allowed group chat IDs
 
 ### config.yaml
